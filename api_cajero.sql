@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-04-2023 a las 09:15:28
+-- Tiempo de generación: 22-05-2023 a las 09:53:29
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -43,8 +43,9 @@ CREATE TABLE `cajeros` (
 INSERT INTO `cajeros` (`id_cajero`, `Num_Serie`, `Lugar`, `Estado`, `id_usuario`, `cajero_eliminado`) VALUES
 (1, 'C1', 'Castellon', 1, 1, 0),
 (2, 'C2', 'Castellon', 1, 2, 0),
-(3, 'C3', 'Barcelona', 0, 2, 0),
-(4, 'C4', 'Galicia', 1, 1, 0);
+(3, 'C3', 'Madrid', 1, 2, 0),
+(4, 'C4', 'Madrid', 1, 1, 0),
+(5, 'C6', 'Castellon', 1, 3, 0);
 
 -- --------------------------------------------------------
 
@@ -69,8 +70,11 @@ CREATE TABLE `transacciones` (
 INSERT INTO `transacciones` (`id_transaccion`, `Nombre`, `Dinero`, `Tarjeta`, `Fecha`, `id_cajero`, `transac_eliminada`) VALUES
 (1, 'David', 5000, '1234123412341234', '2023-04-08', 2, 0),
 (2, 'Manu', 5000, '4200568932104501', '2023-04-12', 2, 1),
-(3, 'Lucia', 600, '4211023830200001', '2023-03-19', 3, 1),
-(4, 'Manu', 456, '4200568932104501', '2023-04-07', 2, 0);
+(3, 'Manu', 456, '4200568932104501', '2023-04-07', 2, 0),
+(4, 'manu', 5000, '4200568932104501', '2023-05-06', 1, 0),
+(5, 'manu', 5000, '4200568932104501', '2023-05-06', 2, 1),
+(7, 'Dani', 300, '3242532345366532', '2023-05-08', 6, 0),
+(8, 'Dani', 500, '4524123459574586', '2023-05-22', 5, 0);
 
 -- --------------------------------------------------------
 
@@ -93,9 +97,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `username`, `password`, `fullname`, `telefono`, `correo`, `recordar`) VALUES
-(1, 'lu', 'pbkdf2:sha256:260000$1Pa4Nj94ninJAt3v$10deacace896bcc529381ca41dfceace0a95f2836722ade176f96c185ce5e5bf', 'Lucia Horcajo', '640380531', 'lucia@gmail.com', 0),
-(2, 'manu', 'pbkdf2:sha256:260000$uDGBgAZDnakswWzG$a0dad6f7090ba3f32b87cae72800cc33f001e2205f0b83d3208c575a612fc0db', 'Manuel Maratrat', '644268497', 'manumar2002@gmail.com', 1),
-(3, 'mara', 'pbkdf2:sha256:260000$x0LxXyo6bUZH9VOT$96fd3a480fc879f432b9893205458ce8f49577b6911fb0dca9b933f064865c61', 'David', '658424513', 'mara@gmail.com', 0);
+(2, 'manu', 'pbkdf2:sha256:260000$xTM9f0n6StaI85SR$17764feb7147a34fff9e153bbd56bf3ddaadedeacd9c28fa91d8cb72378aee7e', 'Manuel Maratrat', '644268497', 'manumar2002@gmail.com', 0),
+(1, 'lu', 'pbkdf2:sha256:260000$H2a6isnt6M7Ng2VV$dcca678b4c21925f9a6ade0ee2079eae3db6218f595c685376545fb57dc7c324', 'Lucía Horcajo', '640380531', 'lucia@gmail.com', 0),
+(3, 'Manuel', '', 'Manuel Maratrat Pons', '', 'cajerosapi@gmail.com', 0);
 
 --
 -- Índices para tablas volcadas
@@ -128,19 +132,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `cajeros`
 --
 ALTER TABLE `cajeros`
-  MODIFY `id_cajero` smallint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_cajero` smallint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `transacciones`
 --
 ALTER TABLE `transacciones`
-  MODIFY `id_transaccion` smallint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_transaccion` smallint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` smallint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_usuario` smallint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
